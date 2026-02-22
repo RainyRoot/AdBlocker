@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdBlocker — Privacy Policy</title>
+    <style>
+      body { max-width: 680px; margin: 40px auto; padding: 0 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; color: #111827; }
+      h1 { font-size: 24px; margin-bottom: 4px; }
+      h2 { font-size: 17px; margin-top: 28px; }
+      p, li { color: #374151; }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy</h1>
+    <p><em>Last updated: 2026-02-22</em></p>
+
+    <h2>Summary</h2>
+    <p>AdBlocker does not collect, transmit, or share any personal data. Everything stays on your device.</p>
+
+    <h2>Data collection</h2>
+    <p>AdBlocker collects no data whatsoever. Specifically:</p>
+    <ul>
+      <li>No browsing history is recorded or transmitted.</li>
+      <li>No analytics, telemetry, or crash reports are sent.</li>
+      <li>No personally identifiable information is processed.</li>
+    </ul>
+
+    <h2>Filter lists</h2>
+    <p>
+      Filter rules (EasyList, EasyPrivacy, uBlock filters) are downloaded once at
+      <strong>build time</strong> and bundled into the extension. The extension never
+      fetches remote URLs at runtime; no network requests are made on your behalf.
+    </p>
+
+    <h2>Local storage</h2>
+    <p>
+      The extension stores the following data locally on your device using
+      <code>chrome.storage.local</code>:
+    </p>
+    <ul>
+      <li>Whether the extension is enabled (on/off toggle).</li>
+      <li>Your personal allowlist of domains where blocking is paused.</li>
+      <li>A running count of blocked requests (used for the stats display).</li>
+      <li>Any custom blocking rules you have entered.</li>
+    </ul>
+    <p>This data never leaves your device and is not accessible to any third party.</p>
+
+    <h2>Permissions</h2>
+    <p>
+      AdBlocker requests only the permissions strictly required to block ads:
+      <code>declarativeNetRequest</code>, <code>storage</code>, <code>tabs</code>,
+      and <code>scripting</code>. No permission is used to observe, record, or
+      transmit your activity.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions? Open an issue at
+      <a href="https://github.com/RainyRoot/AdBlocker">github.com/RainyRoot/AdBlocker</a>.
+    </p>
+  </body>
+</html>

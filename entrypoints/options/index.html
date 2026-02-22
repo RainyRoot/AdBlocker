@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdBlocker — Options</title>
+  </head>
+  <body>
+    <h1>AdBlocker Settings</h1>
+
+    <section id="section-filter-lists">
+      <h2>Filter Lists</h2>
+      <label>
+        <input type="checkbox" id="cb-easylist" />
+        EasyList <span class="list-desc">— general ads</span>
+      </label>
+      <label>
+        <input type="checkbox" id="cb-easyprivacy" />
+        EasyPrivacy <span class="list-desc">— trackers</span>
+      </label>
+      <label>
+        <input type="checkbox" id="cb-ublock" />
+        uBlock filters <span class="list-desc">— extended (opt-in)</span>
+      </label>
+    </section>
+
+    <section id="section-allowlist">
+      <h2>Allowlist</h2>
+      <ul id="allowlist-items"></ul>
+      <div class="row">
+        <input type="text" id="allowlist-input" placeholder="example.com" />
+        <button id="btn-add-domain">Add</button>
+      </div>
+    </section>
+
+    <section id="section-custom-rules">
+      <h2>Custom Rules</h2>
+      <p class="hint">One rule per line, e.g. <code>||ads.example.com^</code></p>
+      <textarea id="custom-rules-textarea" rows="10" spellcheck="false"></textarea>
+      <div class="row">
+        <button id="btn-save-rules">Save</button>
+        <span id="custom-rules-status"></span>
+      </div>
+    </section>
+
+    <section id="section-stats">
+      <h2>Stats</h2>
+      <p>Ads blocked: <strong id="stats-count">…</strong></p>
+      <button id="btn-reset-stats">Reset counter</button>
+    </section>
+
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>

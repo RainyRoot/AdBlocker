@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdBlocker</title>
+  </head>
+  <body>
+    <header>
+      <img src="/icons/icon48.png" alt="" width="48" height="48" />
+      <h1>AdBlocker</h1>
+    </header>
+
+    <section class="stats">
+      <span class="stats__count" id="blocked-count">…</span>
+      <span class="stats__label">ads blocked</span>
+    </section>
+
+    <section class="controls">
+      <p class="controls__domain" id="current-domain">…</p>
+      <button id="toggle-enabled" aria-pressed="true">Enabled</button>
+      <button id="btn-allowlist">Pause on this site</button>
+    </section>
+
+    <footer>
+      <button id="btn-options">Options</button>
+    </footer>
+
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>
