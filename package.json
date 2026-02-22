@@ -2,6 +2,7 @@
   "name": "adblocker",
   "version": "1.0.0",
   "description": "Fast, privacy-first ad and tracker blocker.",
+  "type": "module",
   "scripts": {
     "dev": "wxt",
     "build": "pnpm run fetch-filters && pnpm run convert-filters && wxt build",
@@ -12,7 +13,6 @@
     "postinstall": "wxt prepare"
   },
   "devDependencies": {
-    "@eyeo/abp2dnr": "^1.3.3",
     "@types/node": "^22.0.0",
     "node-fetch": "^3.3.2",
     "tsx": "^4.19.2",
