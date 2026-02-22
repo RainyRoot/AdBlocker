@@ -1,0 +1,6 @@
+node_modules/
+.output/
+filter-lists/sources/
+public/rules/
+assets/styles/cosmetic-hide.css
+*.zip
