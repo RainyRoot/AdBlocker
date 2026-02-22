@@ -56,34 +56,6 @@ pnpm typecheck
 2. Enable **Developer mode**
 3. Click **Load unpacked** → select `.output/chrome-mv3/`
 
-## Project structure
-
-```
-entrypoints/
-  background.ts        # Service worker — rule matching, message routing
-  content.ts           # Cosmetic CSS injection at document_start
-  popup/               # Toolbar popup (HTML + TS)
-  options/             # Options page (HTML + TS)
-src/
-  types/index.ts       # Shared TypeScript interfaces
-  constants.ts         # Rule ID ranges, ruleset IDs, filter URLs
-  utils/
-    storage.ts         # Typed chrome.storage.local wrappers
-    messaging.ts       # chrome.runtime.sendMessage wrapper
-    stats.ts           # Debounced blocked-count persistence
-    allowlist.ts       # Dynamic DNR allowlist rules
-scripts/
-  fetch-filter-lists.ts    # Downloads .txt filter lists
-  convert-to-dnr.ts        # ABP → DNR JSON conversion
-  generate-cosmetic-css.ts # Deduplicates cosmetic selectors → CSS
-  generate-icons.ts        # Generates placeholder PNG icons
-public/
-  icons/               # Extension icons (16, 32, 48, 128px)
-  privacy-policy.html
-assets/styles/
-  popup.css
-  options.css
-```
 
 ## Rule budget
 
