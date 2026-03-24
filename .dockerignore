@@ -1,0 +1,12 @@
+.git
+.gitignore
+*.md
+LICENSE
+node_modules/
+.output/
+.wxt/
+filter-lists/
+dist/
+.idea/
+.vscode/
+.DS_Store

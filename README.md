@@ -1,72 +1,94 @@
 # AdBlocker
 
-A fast, privacy-first ad and tracker blocker for Chrome/Chromium. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API — no background page sniffing, no runtime network requests.
+A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API — all blocking rules are compiled at build time, so there's no background page network sniffing and zero runtime overhead.
 
 ## Features
 
-- Blocks ads and trackers via EasyList and EasyPrivacy (bundled at build time)
-- Optional uBlock extended filters (opt-in from Options)
-- Per-domain allowlist — pause blocking on specific sites
-- Custom rules textarea — add your own URL filters
-- Blocked request counter
-- Cosmetic hiding of ad placeholders via injected CSS
+- **EasyList + EasyPrivacy** — Industry-standard filter lists bundled at build time
+- **uBlock Extended Filters** — Optional additional rules (opt-in from the options page)
+- **Per-Domain Allowlist** — Pause blocking on specific sites with one click
+- **Custom Rules** — Add your own URL patterns via the options page
+- **Blocked Request Counter** — See how many ads and trackers have been stopped
+- **Cosmetic Filtering** — Hides ad placeholders and empty frames via injected CSS
+- **Zero Data Collection** — No telemetry, no analytics, no network requests from the extension itself
 
-## Building
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm (`npm install -g pnpm`)
-
-### Install dependencies
+## Quick Start
 
 ```bash
+git clone https://github.com/RainyRoot/AdBlocker.git
+cd AdBlocker
 pnpm install
-```
-
-### Full build
-
-```bash
 pnpm build
 ```
 
-This runs three steps in sequence:
+Then load `.output/chrome-mv3/` as an unpacked extension in Chrome. See [INSTALL.md](INSTALL.md) for detailed instructions and [USAGE.md](USAGE.md) for configuration options.
 
-1. **`pnpm fetch-filters`** — downloads EasyList, EasyPrivacy, and uBlock filter lists
-2. **`pnpm convert-filters`** — converts ABP filter syntax to DNR JSON rules + cosmetic CSS
-3. **`wxt build`** — bundles the extension to `.output/chrome-mv3/`
+## Tech Stack
 
-### Development
+| Component | Technology |
+|-----------|------------|
+| Framework | [WXT](https://wxt.dev) (Manifest V3) |
+| Language | TypeScript |
+| Blocking | `declarativeNetRequest` API (static + dynamic rules) |
+| Filter Lists | EasyList, EasyPrivacy, uBlock Origin filters |
+| Build Scripts | tsx (TypeScript execution) |
+| Package Manager | pnpm |
 
-```bash
-pnpm dev
+## Project Structure
+
+```
+AdBlocker/
+├── entrypoints/
+│   ├── background.ts         # Service worker (counter, rule management)
+│   ├── content.ts            # Content script (cosmetic filtering)
+│   ├── popup/                # Browser action popup UI
+│   └── options/              # Extension options page
+├── scripts/
+│   ├── fetch-filter-lists.ts # Downloads EasyList, EasyPrivacy, uBlock filters
+│   ├── convert-to-dnr.ts     # Converts ABP syntax → DNR JSON rules
+│   └── generate-cosmetic-css.ts # Extracts cosmetic hiding rules → CSS
+├── src/
+│   ├── constants.ts          # Rule IDs, storage keys, filter URLs
+│   ├── types/                # TypeScript type definitions
+│   └── utils/                # Allowlist, messaging, stats, storage helpers
+├── public/                   # Icons and privacy policy
+├── assets/styles/            # Popup and options page CSS
+├── wxt.config.ts             # WXT + manifest configuration
+└── package.json
 ```
 
-Starts WXT in watch mode with hot reload.
+## Rule Budget
 
-### Type checking
+Chrome's `declarativeNetRequest` API enforces per-extension rule limits:
+
+| Ruleset | Limit | Default |
+|---------|-------|---------|
+| EasyList | 24,999 | Enabled |
+| EasyPrivacy | 4,999 | Enabled |
+| uBlock Extended | 24,999 | Disabled (opt-in) |
+| Allowlist | 1,000 | Dynamic |
+| Custom Rules | 30,000 | Dynamic |
+
+## Docker
+
+Build the extension inside a container (useful for CI or reproducible builds):
 
 ```bash
-pnpm typecheck
+docker pull ghcr.io/rainyroot/adblocker:latest
+
+# Extract the built extension
+docker run --rm -v $(pwd)/dist:/out ghcr.io/rainyroot/adblocker:latest
 ```
 
-## Loading in Chrome
-
-1. Open `chrome://extensions`
-2. Enable **Developer mode**
-3. Click **Load unpacked** → select `.output/chrome-mv3/`
-
-
-## Rule budget
-
-| Ruleset     | Limit  | Default |
-|-------------|--------|---------|
-| EasyList    | 24,999 | enabled |
-| EasyPrivacy | 4,999  | enabled |
-| uBlock      | 24,999 | disabled (opt-in) |
-| Allowlist   | 1,000  | dynamic |
-| Custom      | 30,000 | dynamic |
+The built extension will be in `dist/chrome-mv3/`.
 
 ## Privacy
 
-No data is collected or transmitted. See [public/privacy-policy.html](public/privacy-policy.html).
+No data is collected or transmitted. The extension operates entirely locally. See [privacy-policy.html](public/privacy-policy.html) for the full privacy policy.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Run `pnpm typecheck` before committing
+4. Open a pull request
