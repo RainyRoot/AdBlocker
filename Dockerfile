@@ -4,10 +4,8 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /build
 
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
-
 COPY . .
+RUN pnpm install --frozen-lockfile
 
 RUN pnpm run fetch-filters && pnpm run convert-filters && pnpm exec wxt build
 
