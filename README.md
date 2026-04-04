@@ -12,7 +12,27 @@ A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. B
 - **Cosmetic Filtering** — Hides ad placeholders and empty frames via injected CSS
 - **Zero Data Collection** — No telemetry, no analytics, no network requests from the extension itself
 
-## Quick Start
+## Installation
+
+### Option 1 — Chrome Web Store *(coming soon)*
+
+The extension will be submitted to the Chrome Web Store. Once approved, you can install it with one click — no developer tools or technical setup required.
+
+### Option 2 — Load from a GitHub Release (recommended for now)
+
+No build tools needed. Download the pre-built extension and load it manually:
+
+1. Go to [Releases](https://github.com/RainyRoot/AdBlocker/releases) and download the latest `adblocker-*.zip`
+2. Unzip it to a permanent folder (don't delete it after loading)
+3. Open `chrome://extensions` in your browser
+4. Enable **Developer mode** (toggle in the top-right corner)
+5. Click **Load unpacked** and select the unzipped folder
+
+The AdBlocker icon will appear in your toolbar. Works in Chrome, Brave, Edge, Arc, and any other Chromium-based browser.
+
+> **Note:** Chrome may show a warning that the extension is not from the Web Store. This is normal for manually loaded extensions — it does not mean the extension is unsafe.
+
+### Option 3 — Build from Source
 
 ```bash
 git clone https://github.com/RainyRoot/AdBlocker.git
@@ -22,6 +42,28 @@ pnpm build
 ```
 
 Then load `.output/chrome-mv3/` as an unpacked extension in Chrome. See [INSTALL.md](INSTALL.md) for detailed instructions and [USAGE.md](USAGE.md) for configuration options.
+
+## Publishing to the Chrome Web Store
+
+If you want to self-host or fork this extension and publish it yourself:
+
+1. Build the submission zip:
+   ```bash
+   pnpm build:prod
+   ```
+   This creates `.output/adblocker-*.zip`.
+
+2. Register as a Chrome developer at [chrome.google.com/webstore/devconsole](https://chrome.google.com/webstore/devconsole) (one-time $5 fee).
+
+3. Click **New Item**, upload the zip, and fill in the store listing:
+   - At least 1 screenshot (1280x800 or 640x400)
+   - A 440x280 promo tile
+   - Description and category (Productivity > Tools)
+   - Privacy policy URL (the repo includes `public/privacy-policy.html`)
+
+4. Submit for review. Google typically reviews within 1-3 business days.
+
+> **Host permissions note:** Because the extension uses `host_permissions: ["<all_urls>"]` to block requests on all sites, the store listing will require a justification. Explain that this permission is required for `declarativeNetRequest` to intercept and block network requests on any domain.
 
 ## Tech Stack
 
