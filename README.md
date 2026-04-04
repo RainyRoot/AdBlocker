@@ -14,25 +14,46 @@ A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. B
 
 ## Installation
 
-### Option 1 — Chrome Web Store *(coming soon)*
+Since the extension is not yet on the Chrome Web Store, you load it manually. It takes about 2 minutes and works exactly the same as any store extension after that.
 
-The extension will be submitted to the Chrome Web Store. Once approved, you can install it with one click — no developer tools or technical setup required.
+### Step 1 — Download
 
-### Option 2 — Load from a GitHub Release (recommended for now)
+Go to [Releases](https://github.com/RainyRoot/AdBlocker/releases) and download the latest `adblocker-*.zip`.
 
-No build tools needed. Download the pre-built extension and load it manually:
+### Step 2 — Unzip
 
-1. Go to [Releases](https://github.com/RainyRoot/AdBlocker/releases) and download the latest `adblocker-*.zip`
-2. Unzip it to a permanent folder (don't delete it after loading)
-3. Open `chrome://extensions` in your browser
-4. Enable **Developer mode** (toggle in the top-right corner)
-5. Click **Load unpacked** and select the unzipped folder
+Extract the zip to a **permanent folder** — somewhere you won't accidentally delete it (e.g. `Documents/AdBlocker`). Chrome loads the extension directly from that folder, so if you delete or move it, the extension breaks.
 
-The AdBlocker icon will appear in your toolbar. Works in Chrome, Brave, Edge, Arc, and any other Chromium-based browser.
+### Step 3 — Load in Chrome
 
-> **Note:** Chrome may show a warning that the extension is not from the Web Store. This is normal for manually loaded extensions — it does not mean the extension is unsafe.
+1. Open `chrome://extensions` in Chrome
+2. Enable **Developer mode** (toggle in the top-right corner)
+3. Click **Load unpacked**
+4. Select the folder you just unzipped
 
-### Option 3 — Build from Source
+The AdBlocker icon will appear in your toolbar. Done.
+
+Works in Chrome, Brave, Edge, Arc, and any other Chromium-based browser.
+
+> **"Disable developer mode extensions" popup** — Chrome may show this warning when it starts. Just click **Keep extensions** every time. This only appears because the extension wasn't installed from the store; it does not affect how the extension works.
+
+## Daily Use
+
+Once loaded, AdBlocker runs automatically in the background — you don't need to do anything. Every request to an ad or tracker domain is blocked before it even loads.
+
+**Toolbar icon** — Click the AdBlocker icon in your toolbar to:
+- See how many requests have been blocked on the current page
+- Pause blocking for the current site (allowlist toggle)
+- Re-enable blocking after pausing
+
+**Options page** — Right-click the icon and choose **Options** (or go to `chrome://extensions`, find AdBlocker, and click **Details > Extension options**) to:
+- Enable the optional uBlock Extended filter list for more aggressive blocking
+- Add custom URL patterns to block
+- Manage your per-site allowlist
+
+**Blocking is silent** — There's no notification for every blocked ad. The counter in the popup shows the total. Pages just load faster and cleaner.
+
+### Build from Source
 
 ```bash
 git clone https://github.com/RainyRoot/AdBlocker.git
