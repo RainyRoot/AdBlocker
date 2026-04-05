@@ -1,30 +1,30 @@
 # AdBlocker
 
-A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API — all blocking rules are compiled at build time, so there's no background page network sniffing and zero runtime overhead.
+A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API all blocking rules are compiled at build time, so there's no background page network sniffing and zero runtime overhead.
 
 ## Features
 
-- **EasyList + EasyPrivacy** — Industry-standard filter lists bundled at build time
-- **uBlock Extended Filters** — Optional additional rules (opt-in from the options page)
-- **Per-Domain Allowlist** — Pause blocking on specific sites with one click
-- **Custom Rules** — Add your own URL patterns via the options page
-- **Blocked Request Counter** — See how many ads and trackers have been stopped
-- **Cosmetic Filtering** — Hides ad placeholders and empty frames via injected CSS
-- **Zero Data Collection** — No telemetry, no analytics, no network requests from the extension itself
+- **EasyList + EasyPrivacy** - Industry-standard filter lists bundled at build time
+- **uBlock Extended Filters** - Optional additional rules (opt-in from the options page)
+- **Per-Domain Allowlist** - Pause blocking on specific sites with one click
+- **Custom Rules** - Add your own URL patterns via the options page
+- **Blocked Request Counter** - See how many ads and trackers have been stopped
+- **Cosmetic Filtering** - Hides ad placeholders and empty frames via injected CSS
+- **Zero Data Collection** - No telemetry, no analytics, no network requests from the extension itself
 
 ## Installation
 
 Since the extension is not yet on the Chrome Web Store, you load it manually. It takes about 2 minutes and works exactly the same as any store extension after that.
 
-### Step 1 — Download
+### Step 1  Download
 
 Go to [Releases](https://github.com/RainyRoot/AdBlocker/releases) and download the latest `adblocker-*.zip`.
 
-### Step 2 — Unzip
+### Step 2  Unzip
 
-Extract the zip to a **permanent folder** — somewhere you won't accidentally delete it (e.g. `Documents/AdBlocker`). Chrome loads the extension directly from that folder, so if you delete or move it, the extension breaks.
+Extract the zip to a **permanent folder** somewhere you won't accidentally delete it (e.g. `Documents/AdBlocker`). Chrome loads the extension directly from that folder, so if you delete or move it, the extension breaks.
 
-### Step 3 — Load in Chrome
+### Step 3  Load in Chrome
 
 1. Open `chrome://extensions` in Chrome
 2. Enable **Developer mode** (toggle in the top-right corner)
@@ -35,13 +35,13 @@ The AdBlocker icon will appear in your toolbar. Done.
 
 Works in Chrome, Brave, Edge, Arc, and any other Chromium-based browser.
 
-> **"Disable developer mode extensions" popup** — Chrome may show this warning when it starts. Just click **Keep extensions** every time. This only appears because the extension wasn't installed from the store; it does not affect how the extension works.
+> **"Disable developer mode extensions" popup**  Chrome may show this warning when it starts. Just click **Keep extensions** every time. This only appears because the extension wasn't installed from the store; it does not affect how the extension works.
 
 ## Daily Use
 
-Once loaded, AdBlocker runs automatically in the background — you don't need to do anything. Every request to an ad or tracker domain is blocked before it even loads.
+Once loaded, AdBlocker runs automatically in the background you don't need to do anything. Every request to an ad or tracker domain is blocked before it even loads.
 
-**Toolbar icon** — Click the AdBlocker icon in your toolbar to:
+**Toolbar icon**  Click the AdBlocker icon in your toolbar to:
 - See how many requests have been blocked on the current page
 - Pause blocking for the current site (allowlist toggle)
 - Re-enable blocking after pausing
@@ -51,7 +51,7 @@ Once loaded, AdBlocker runs automatically in the background — you don't need t
 - Add custom URL patterns to block
 - Manage your per-site allowlist
 
-**Blocking is silent** — There's no notification for every blocked ad. The counter in the popup shows the total. Pages just load faster and cleaner.
+**Blocking is silent**  There's no notification for every blocked ad. The counter in the popup shows the total. Pages just load faster and cleaner.
 
 ### Build from Source
 
