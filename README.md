@@ -1,6 +1,6 @@
 # AdBlocker
 
-A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API all blocking rules are compiled at build time, so there's no background page network sniffing and zero runtime overhead.
+A fast, privacy-first ad and tracker blocker for Chrome and Chromium browsers. Built with [WXT](https://wxt.dev) and Manifest V3's `declarativeNetRequest` API all blocking rules are compiled at build time, so there's no background page network sniffing and zero runtime overhead. 
 
 ## Features
 
