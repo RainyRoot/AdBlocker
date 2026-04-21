@@ -46,7 +46,7 @@ Once loaded, AdBlocker runs automatically in the background you don't need to do
 - Pause blocking for the current site (allowlist toggle)
 - Re-enable blocking after pausing
 
-**Options page** — Right-click the icon and choose **Options** (or go to `chrome://extensions`, find AdBlocker, and click **Details > Extension options**) to:
+**Options page** Right-click the icon and choose **Options** (or go to `chrome://extensions`, find AdBlocker, and click **Details > Extension options**) to:
 - Enable the optional uBlock Extended filter list for more aggressive blocking
 - Add custom URL patterns to block
 - Manage your per-site allowlist
